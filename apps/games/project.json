@@ -19,7 +19,8 @@
         "assets": ["apps/games/src/favicon.ico", "apps/games/src/assets"],
         "styles": ["apps/games/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nrwl/react/plugins/webpack",
+        "postcssConfig": "apps/games/postcss.config.js"
       },
       "configurations": {
         "development": {
