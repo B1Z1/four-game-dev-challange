@@ -1,18 +1,19 @@
 {
+  "name": "games-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/app-e2e/src",
+  "sourceRoot": "apps/games-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/app-e2e/cypress.config.ts",
-        "devServerTarget": "app:serve:development",
+        "cypressConfig": "apps/games-e2e/cypress.config.ts",
+        "devServerTarget": "games:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "app:serve:production"
+          "devServerTarget": "games:serve:production"
         }
       }
     },
@@ -20,10 +21,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/app-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/games-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["app"]
+  "implicitDependencies": ["games"]
 }

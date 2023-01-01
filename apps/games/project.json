@@ -1,22 +1,23 @@
 {
+  "name": "games",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/app/src",
+  "sourceRoot": "apps/games/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/app",
-        "index": "apps/app/src/index.html",
+        "outputPath": "dist/apps/games",
+        "index": "apps/games/src/index.html",
         "baseHref": "/",
-        "main": "apps/app/src/main.tsx",
-        "polyfills": "apps/app/src/polyfills.ts",
-        "tsConfig": "apps/app/tsconfig.app.json",
-        "assets": ["apps/app/src/favicon.ico", "apps/app/src/assets"],
-        "styles": ["apps/app/src/styles.scss"],
+        "main": "apps/games/src/main.tsx",
+        "polyfills": "apps/games/src/polyfills.ts",
+        "tsConfig": "apps/games/tsconfig.app.json",
+        "assets": ["apps/games/src/favicon.ico", "apps/games/src/assets"],
+        "styles": ["apps/games/src/styles.scss"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -30,8 +31,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/app/src/environments/environment.ts",
-              "with": "apps/app/src/environments/environment.prod.ts"
+              "replace": "apps/games/src/environments/environment.ts",
+              "with": "apps/games/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -44,18 +45,18 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nrwl/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "app:build",
+        "buildTarget": "games:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "app:build:development"
+          "buildTarget": "games:build:development"
         },
         "production": {
-          "buildTarget": "app:build:production",
+          "buildTarget": "games:build:production",
           "hmr": false
         }
       }
@@ -64,14 +65,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/games/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/app"],
+      "outputs": ["{workspaceRoot}/coverage/apps/games"],
       "options": {
-        "jestConfig": "apps/app/jest.config.ts",
+        "jestConfig": "apps/games/jest.config.ts",
         "passWithNoTests": true
       }
     }
